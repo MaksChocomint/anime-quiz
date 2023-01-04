@@ -1,0 +1,11 @@
+.skip_button {
+  @apply text-white flex gap-1 font-semibold text-lg tracking-widest items-center cursor-pointer transition-all mr-3;
+}
+
+.skip_arrow {
+  @apply text-2xl;
+}
+
+.skip_button:hover {
+  @apply text-pink-600;
+}

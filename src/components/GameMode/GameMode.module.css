@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.game_mod {
+  @apply flex justify-center items-center gap-32 h-screen;
+}
+
+.game_preview,
+.game_description {
+  animation: 7s infinite alternate border-color;
+
+  @apply w-80 h-4/6 font-bold text-3xl flex items-center justify-center rounded-3xl border-4 cursor-pointer;
+}
+
+.black_filter {
+  @apply bg-black opacity-30 h-4/6 w-80 z-10 absolute rounded-3xl;
+}
+
+.game_title {
+  @apply z-20 text-white tracking-widest;
+}
+
+@keyframes border-color {
+  0% {
+    @apply border-red-500;
+    box-shadow: 0 5px 10px rgb(239, 68, 68);
+    text-shadow: 0 0 8px white;
+  }
+  14% {
+    @apply border-orange-500;
+    box-shadow: 0 10px 20px rgb(249, 115, 22);
+    text-shadow: 0 0 16px white;
+  }
+  28% {
+    @apply border-yellow-500 shadow-yellow-500 shadow-2xl;
+    box-shadow: 0 5px 10px rgb(234, 179, 8);
+    text-shadow: 0 0 8px white;
+  }
+  42% {
+    @apply border-green-500 shadow-green-500 shadow-md;
+    box-shadow: 0 10px 20px rgb(34, 197, 94);
+    text-shadow: 0 0 16px white;
+  }
+  56% {
+    @apply border-blue-300 shadow-blue-300 shadow-2xl;
+    box-shadow: 0 5px 10px rgb(147, 197, 253);
+    text-shadow: 0 0 8px white;
+  }
+  70% {
+    @apply border-blue-600 shadow-blue-600 shadow-md;
+    box-shadow: 0 10px 20px rgb(37, 99, 235);
+    text-shadow: 0 0 16px white;
+  }
+  84% {
+    @apply border-purple-500 shadow-purple-500 shadow-2xl;
+    box-shadow: 0 5px 10px rgb(168, 85, 247);
+    text-shadow: 0 0 8px white;
+  }
+  100% {
+    @apply border-red-500 shadow-red-500 shadow-md;
+    box-shadow: 0 10px 20px rgb(239, 68, 68);
+    text-shadow: 0 0 16px white;
+  }
+}

@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.app {
+  @apply bg-zinc-800 h-screen font-sans;
+}
+
+.nav {
+  @apply bg-zinc-600 absolute top-0 left-1/2 h-11 -translate-x-1/2 rounded-b-3xl;
+  width: 85%;
+}
+
+.score {
+  @apply text-white tracking-widest absolute top-1.5 right-32 text-xl font-bold flex gap-2 items-center;
+}
+
+.easyModeBtn {
+  @apply border-none rounded-xl top-1.5 left-32 text-xl z-50 text-white font-bold tracking-wider cursor-pointer px-2 py-0.5 absolute;
+  transition: all 1s ease;
+}
