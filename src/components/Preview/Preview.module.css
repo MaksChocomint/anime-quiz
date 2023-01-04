@@ -16,15 +16,15 @@
 }
 
 .title {
-  @apply text-white tracking-wide font-bold text-3xl transition-colors;
+  @apply text-white tracking-wide font-bold text-3xl text-center transition-colors;
 }
 
 .title_wrong {
-  @apply text-red-500 tracking-wide font-bold text-3xl transition-colors;
+  @apply text-red-500 tracking-wide font-bold text-3xl text-center transition-colors;
 }
 
 .title_correct {
-  @apply tracking-wide font-bold text-3xl transition-colors;
+  @apply tracking-wide font-bold text-3xl text-center transition-colors;
   color: rgb(16, 185, 129);
 }
 
@@ -75,12 +75,6 @@
     @apply border-red-500 shadow-red-500 shadow-md;
     box-shadow: 0 0px 10px rgb(239, 68, 68);
   }
-}
-
-@media (max-width: 1440px) {
-}
-
-@media (max-width: 800px) {
 }
 
 @media (max-width: 700px) {

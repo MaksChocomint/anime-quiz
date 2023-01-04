@@ -30,18 +30,20 @@ const Preview = (props: Props) => {
     setAnswer(e.target.value);
   };
   useEffect(() => {
-    if (props.anime.popularity <= 100) {
-      setScoreValue(5);
-    } else if (props.anime.popularity <= 200) {
-      setScoreValue(10);
-    } else if (props.anime.popularity <= 300) {
-      setScoreValue(20);
-    } else if (props.anime.popularity <= 400) {
-      setScoreValue(40);
-    } else if (props.anime.popularity <= 500) {
-      setScoreValue(50);
-    } else {
-      setScoreValue(75);
+    if (props.anime !== undefined) {
+      if (props.anime.popularity <= 100) {
+        setScoreValue(5);
+      } else if (props.anime.popularity <= 200) {
+        setScoreValue(10);
+      } else if (props.anime.popularity <= 300) {
+        setScoreValue(20);
+      } else if (props.anime.popularity <= 400) {
+        setScoreValue(40);
+      } else if (props.anime.popularity <= 500) {
+        setScoreValue(50);
+      } else {
+        setScoreValue(75);
+      }
     }
   }, [props.anime]);
   const answerCheck = (

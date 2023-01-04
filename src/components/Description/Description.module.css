@@ -186,7 +186,7 @@
   }
 }
 
-@media (min-width: 1600px) {
+@media (min-width: 2000px) {
   .description {
     @apply gap-4 flex-col border-none;
   }

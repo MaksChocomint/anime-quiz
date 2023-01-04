@@ -30,20 +30,22 @@ const Description = (props: Props) => {
   };
 
   useEffect(() => {
-    if (props.anime.popularity <= 100) setScoreValue(5);
-    else if (props.anime.popularity <= 200) setScoreValue(10);
-    else if (props.anime.popularity <= 300) setScoreValue(20);
-    else if (props.anime.popularity <= 400) setScoreValue(40);
-    else if (props.anime.popularity <= 500) setScoreValue(50);
-    else setScoreValue(75);
+    if (props.anime !== undefined) {
+      if (props.anime.popularity <= 100) setScoreValue(5);
+      else if (props.anime.popularity <= 200) setScoreValue(10);
+      else if (props.anime.popularity <= 300) setScoreValue(20);
+      else if (props.anime.popularity <= 400) setScoreValue(40);
+      else if (props.anime.popularity <= 500) setScoreValue(50);
+      else setScoreValue(75);
 
-    if (props.anime.synopsis.length < 1100)
-      setDescriptionFontSize(styles.description_text_default);
-    else if (props.anime.synopsis.length < 1200)
-      setDescriptionFontSize(styles.description_text_smaller);
-    else if (props.anime.synopsis.length < 1350)
-      setDescriptionFontSize(styles.description_text_small);
-    else setDescriptionFontSize(styles.description_text_smallest);
+      if (props.anime.synopsis.length < 1100)
+        setDescriptionFontSize(styles.description_text_default);
+      else if (props.anime.synopsis.length < 1200)
+        setDescriptionFontSize(styles.description_text_smaller);
+      else if (props.anime.synopsis.length < 1350)
+        setDescriptionFontSize(styles.description_text_small);
+      else setDescriptionFontSize(styles.description_text_smallest);
+    }
   }, [props.anime]);
   const answerCheck = (
     answer: string,
