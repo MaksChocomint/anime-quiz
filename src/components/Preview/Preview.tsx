@@ -107,6 +107,7 @@ const Preview = (props: Props) => {
     if (e.key === "Enter") {
       if (answerCheck(answer, props.anime.title, props.anime.title_english)) {
         setTitle(props.anime.title);
+        setTitleStyle(styles.title_correct);
         setTimeout(() => {
           props.setScore((score) => score + scoreValue);
           props.anime.synopsis = "Loading...";
