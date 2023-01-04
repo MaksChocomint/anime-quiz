@@ -7,15 +7,43 @@
 }
 
 .nav {
-  @apply bg-zinc-600 absolute top-0 left-1/2 h-11 -translate-x-1/2 rounded-b-3xl;
+  @apply bg-zinc-600 absolute z-40 top-0 left-1/2 h-11 -translate-x-1/2 rounded-b-3xl;
   width: 85%;
 }
 
 .score {
-  @apply text-white tracking-widest absolute top-1.5 right-32 text-xl font-bold flex gap-2 items-center;
+  @apply text-white tracking-widest absolute z-50 top-1.5 text-xl font-bold flex gap-2 items-center;
+  right: 9%;
 }
 
 .easyModeBtn {
-  @apply border-none rounded-xl top-1.5 left-32 text-xl z-50 text-white font-bold tracking-wider cursor-pointer px-2 py-0.5 absolute;
+  @apply border-none rounded-xl top-1.5 text-xl z-50 text-white font-bold tracking-wider cursor-pointer px-2 py-0.5 absolute;
   transition: all 1s ease;
+  left: 9%;
+}
+
+@media (max-width: 850px) {
+  .score {
+    @apply top-1.5;
+  }
+}
+
+@media (max-width: 375px) {
+  .score {
+    @apply text-base top-2.5;
+  }
+
+  .easyModeBtn {
+    @apply text-base top-2;
+  }
+}
+
+@media (max-width: 290px) {
+  .score {
+    @apply text-base top-2.5;
+  }
+
+  .easyModeBtn {
+    @apply text-base top-2;
+  }
 }

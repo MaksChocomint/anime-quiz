@@ -9,3 +9,9 @@
 .home:active {
   @apply fill-pink-700;
 }
+
+@media (max-width: 375px) {
+  .home {
+    @apply text-2xl top-3;
+  }
+}

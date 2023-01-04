@@ -15,5 +15,5 @@ export const scoreStyleAnimated: {
 } = {
   color: "rgb(52, 211, 153)",
   transition: "all 0.5s ease-in-out",
-  transform: "translateY(-10px)",
+  transform: "translateY(-5px)",
 };

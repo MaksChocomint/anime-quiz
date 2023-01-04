@@ -1,5 +1,5 @@
 .description {
-  @apply flex items-center justify-center gap-28 h-screen;
+  @apply flex items-center justify-center gap-16 h-screen;
 }
 
 .description_text_default {
@@ -27,22 +27,38 @@
 }
 
 .title {
-  @apply text-white tracking-wide font-bold text-3xl transition-colors;
+  @apply text-white tracking-wide font-bold text-3xl text-center transition-colors;
 }
 
 .title_wrong {
-  @apply text-red-500 tracking-wide font-bold text-3xl transition-colors;
+  @apply text-red-500 tracking-wide font-bold text-3xl text-center transition-colors;
 }
 
 .title_correct {
-  @apply tracking-wide font-bold text-3xl transition-colors;
+  @apply tracking-wide font-bold text-3xl text-center transition-colors;
   color: rgb(16, 185, 129);
 }
 
 .question {
-  @apply flex flex-col items-center w-3/6 gap-3;
-  max-height: 536px;
-  overflow: hidden;
+  @apply flex flex-col items-center  gap-3;
+  width: 60%;
+  max-height: 550px;
+  overflow-y: scroll;
+  scrollbar-color: #d4aa70 #e4e4e4;
+}
+
+.question::-webkit-scrollbar {
+  width: 0px;
+}
+
+.question::-webkit-scrollbar-track {
+  background-color: #e4e4e4;
+  border-radius: 100px;
+}
+
+.question::-webkit-scrollbar-thumb {
+  @apply bg-pink-600;
+  border-radius: 100px;
 }
 
 .answer {
@@ -86,5 +102,127 @@
   100% {
     @apply border-red-500 shadow-red-500 shadow-md;
     box-shadow: 0 0px 10px rgb(239, 68, 68);
+  }
+}
+@media (max-width: 1440px) {
+  .title {
+    @apply text-2xl;
+  }
+
+  .title_wrong {
+    @apply text-2xl;
+  }
+
+  .title_correct {
+    @apply text-2xl;
+  }
+}
+
+@media (max-width: 1150px) {
+  .question::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .question {
+    max-height: 500px;
+  }
+  .title {
+    @apply text-xl;
+  }
+
+  .title_wrong {
+    @apply text-xl;
+  }
+
+  .title_correct {
+    @apply text-xl;
+  }
+}
+
+@media (max-width: 950px) {
+  .description {
+    @apply gap-4 flex-col border-none;
+  }
+
+  .question {
+    @apply flex flex-col items-center gap-0;
+    width: 95%;
+  }
+
+  .playerActivities {
+    @apply w-10/12 flex-row items-center gap-12;
+  }
+
+  .description_text_default {
+    @apply border-none p-5;
+  }
+
+  .description_text_smaller {
+    @apply border-none p-5;
+  }
+
+  .description_text_small {
+    @apply border-none p-5;
+  }
+
+  .description_text_smallest {
+    @apply border-none p-5;
+  }
+
+  .error_text {
+    @apply text-2xl;
+  }
+}
+
+@media (max-width: 800px) {
+  .question {
+    max-height: 450px;
+  }
+}
+
+@media (max-height: 610px) {
+  .question {
+    max-height: 300px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .description {
+    @apply gap-4 flex-col border-none;
+  }
+
+  .question {
+    @apply flex flex-col items-center gap-0;
+    width: 80%;
+  }
+
+  .playerActivities {
+    @apply w-5/12 flex-row items-center gap-12;
+  }
+  .answer {
+    @apply w-3/4;
+  }
+
+  .description_text_default {
+    @apply border-none p-5 text-4xl;
+  }
+
+  .description_text_smaller {
+    @apply border-none p-5 text-4xl;
+  }
+
+  .description_text_small {
+    @apply border-none p-5 text-4xl;
+  }
+
+  .description_text_smallest {
+    @apply border-none p-5 text-4xl;
+  }
+
+  .error_text {
+    @apply text-3xl;
+  }
+  .question {
+    max-height: 700px;
   }
 }

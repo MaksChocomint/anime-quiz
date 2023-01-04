@@ -3,7 +3,8 @@
 }
 
 .preview_img {
-  @apply h-auto w-80 rounded-3xl;
+  @apply h-auto rounded-3xl;
+  width: 320px;
 }
 
 .error_text {
@@ -28,7 +29,8 @@
 }
 
 .question {
-  @apply flex flex-col items-center w-3/6 gap-5;
+  @apply flex flex-col items-center gap-5;
+  width: 40%;
 }
 
 .answer {
@@ -75,9 +77,15 @@
   }
 }
 
-@media screen and (max-width: 700px) {
+@media (max-width: 1440px) {
+}
+
+@media (max-width: 800px) {
+}
+
+@media (max-width: 700px) {
   .question {
-    @apply w-4/6;
+    width: 250px;
   }
   .preview {
     @apply flex-col gap-8;
@@ -88,10 +96,31 @@
   }
 
   .playerActivities {
-    @apply w-3/4;
+    @apply w-3/4 flex-row gap-4 items-center;
   }
 
   .title {
     @apply text-xl;
+  }
+}
+
+@media (max-height: 590px) {
+  .question {
+    width: 190px;
+  }
+}
+
+@media (max-height: 540px) {
+  .question {
+    width: 140px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .preview_img {
+    width: 500px;
+  }
+  .error_text {
+    @apply text-3xl;
   }
 }
