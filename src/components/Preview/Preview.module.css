@@ -7,6 +7,25 @@
   width: 320px;
 }
 
+.preview_img_popmode {
+  min-height: 1200px;
+  width: 1200px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.preview_img_object {
+  width: 300px;
+  height: 300px;
+}
+
+.preview_img_main_object {
+  @apply grid place-content-center rounded-3xl;
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
+}
+
 .error_text {
   @apply font-extrabold text-white text-4xl;
 }
@@ -17,14 +36,17 @@
 
 .title {
   @apply text-white tracking-wide font-bold text-3xl text-center transition-colors;
+  width: 150%;
 }
 
 .title_wrong {
   @apply text-red-500 tracking-wide font-bold text-3xl text-center transition-colors;
+  width: 150%;
 }
 
 .title_correct {
   @apply tracking-wide font-bold text-3xl text-center transition-colors;
+  width: 150%;
   color: rgb(16, 185, 129);
 }
 
@@ -90,10 +112,18 @@
   }
 
   .playerActivities {
-    @apply w-3/4 flex-row gap-4 items-center;
+    @apply w-10/12 flex-row gap-4 items-center;
   }
 
   .title {
+    @apply text-xl;
+  }
+
+  .title_correct {
+    @apply text-xl;
+  }
+
+  .title_wrong {
     @apply text-xl;
   }
 }
@@ -102,11 +132,23 @@
   .question {
     width: 190px;
   }
+
+  .title {
+    @apply text-base;
+  }
+
+  .title_correct {
+    @apply text-base;
+  }
+
+  .title_wrong {
+    @apply text-base;
+  }
 }
 
 @media (max-height: 540px) {
   .question {
-    width: 140px;
+    width: 150px;
   }
 }
 

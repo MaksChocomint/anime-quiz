@@ -38,13 +38,15 @@ const Description = (props: Props) => {
       else if (props.anime.popularity <= 500) setScoreValue(50);
       else setScoreValue(75);
 
-      if (props.anime.synopsis.length < 1100)
-        setDescriptionFontSize(styles.description_text_default);
-      else if (props.anime.synopsis.length < 1200)
-        setDescriptionFontSize(styles.description_text_smaller);
-      else if (props.anime.synopsis.length < 1350)
-        setDescriptionFontSize(styles.description_text_small);
-      else setDescriptionFontSize(styles.description_text_smallest);
+      if (props.anime.synopsis !== null) {
+        if (props.anime.synopsis.length < 1100)
+          setDescriptionFontSize(styles.description_text_default);
+        else if (props.anime.synopsis.length < 1200)
+          setDescriptionFontSize(styles.description_text_smaller);
+        else if (props.anime.synopsis.length < 1350)
+          setDescriptionFontSize(styles.description_text_small);
+        else setDescriptionFontSize(styles.description_text_smallest);
+      }
     }
   }, [props.anime]);
   const answerCheck = (

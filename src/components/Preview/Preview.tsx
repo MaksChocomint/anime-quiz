@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./Preview.module.css";
 import loadingStyles from "./Loading.module.css";
 import SkipButton from "../SkipButton/SkipButton";
+import PreviewPOP from "../PreviewPOP/PreviewPOP";
 
 type Props = {
   refresh: boolean;
@@ -23,6 +24,8 @@ type Props = {
 
 const Preview = (props: Props) => {
   const [titleStyle, setTitleStyle] = useState(styles.title);
+  const [previewPOPMode, setPreviewPOPMode] = useState(false);
+  const [previewShow, setPreviewShow] = useState(false);
   const [scoreValue, setScoreValue] = useState(0);
   const [title, setTitle] = useState("???");
   const [answer, setAnswer] = useState("");
@@ -31,21 +34,37 @@ const Preview = (props: Props) => {
   };
   useEffect(() => {
     if (props.anime !== undefined) {
-      if (props.anime.popularity <= 100) {
-        setScoreValue(5);
-      } else if (props.anime.popularity <= 200) {
-        setScoreValue(10);
-      } else if (props.anime.popularity <= 300) {
-        setScoreValue(20);
-      } else if (props.anime.popularity <= 400) {
-        setScoreValue(40);
-      } else if (props.anime.popularity <= 500) {
-        setScoreValue(50);
+      if (previewPOPMode) {
+        if (props.anime.popularity <= 100) {
+          setScoreValue(15);
+        } else if (props.anime.popularity <= 200) {
+          setScoreValue(30);
+        } else if (props.anime.popularity <= 300) {
+          setScoreValue(60);
+        } else if (props.anime.popularity <= 400) {
+          setScoreValue(120);
+        } else if (props.anime.popularity <= 500) {
+          setScoreValue(150);
+        } else {
+          setScoreValue(225);
+        }
       } else {
-        setScoreValue(75);
+        if (props.anime.popularity <= 100) {
+          setScoreValue(5);
+        } else if (props.anime.popularity <= 200) {
+          setScoreValue(10);
+        } else if (props.anime.popularity <= 300) {
+          setScoreValue(20);
+        } else if (props.anime.popularity <= 400) {
+          setScoreValue(40);
+        } else if (props.anime.popularity <= 500) {
+          setScoreValue(50);
+        } else {
+          setScoreValue(75);
+        }
       }
     }
-  }, [props.anime]);
+  }, [props.anime, previewPOPMode]);
   const answerCheck = (
     answer: string,
     title: string,
@@ -110,9 +129,11 @@ const Preview = (props: Props) => {
       if (answerCheck(answer, props.anime.title, props.anime.title_english)) {
         setTitle(props.anime.title);
         setTitleStyle(styles.title_correct);
+        setPreviewShow(true);
         setTimeout(() => {
           props.setScore((score) => score + scoreValue);
           props.anime.synopsis = "Loading...";
+          setPreviewShow(false);
           props.setRefresh((refresh) => !refresh);
           setAnswer("");
         }, 2000);
@@ -144,13 +165,32 @@ const Preview = (props: Props) => {
           <>
             <div className={styles.question}>
               <h1 className={titleStyle}>{title}</h1>
-              <img
-                className={styles.preview_img}
-                src={`${props.anime.images.webp.large_image_url}`}
-                alt="anime"
-              />
+              {previewPOPMode && !previewShow && (
+                <div className={styles.preview_img_main_object}>
+                  <div className={styles.preview_img_object}>
+                    <img
+                      className={styles.preview_img_popmode}
+                      src={`${props.anime.images.webp.large_image_url}`}
+                      alt="anime"
+                    />
+                  </div>
+                </div>
+              )}
+              {(!previewPOPMode || previewShow) && (
+                <img
+                  className={styles.preview_img}
+                  src={`${props.anime.images.webp.large_image_url}`}
+                  alt="anime"
+                />
+              )}
             </div>
             <div className={styles.playerActivities}>
+              <PreviewPOP
+                setRefresh={props.setRefresh}
+                anime={props.anime}
+                setPreviewPOPMode={setPreviewPOPMode}
+                previewPOPMode={previewPOPMode}
+              />
               <input
                 className={styles.answer}
                 name="answer"
@@ -165,6 +205,7 @@ const Preview = (props: Props) => {
                 styleTitleCorrect={styles.title_correct}
                 setTitleStyle={setTitleStyle}
                 setRefresh={props.setRefresh}
+                setPreviewShow={setPreviewShow}
                 setTitle={setTitle}
                 anime={props.anime}
                 setAnswer={setAnswer}

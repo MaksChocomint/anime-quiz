@@ -26,6 +26,10 @@
   .score {
     @apply top-1.5;
   }
+
+  .score {
+    @apply -tracking-tight;
+  }
 }
 
 @media (max-width: 375px) {
