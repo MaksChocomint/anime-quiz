@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import SkipButton from "../SkipButton/SkipButton";
 import styles from "./Description.module.css";
 import loadingStyles from "./Loading.module.css";
+import axios from "axios";
 
 type Props = {
   refresh: boolean;
@@ -17,6 +18,8 @@ type Props = {
 };
 
 const Description = (props: Props) => {
+  const [isTranslated, setIsTranslated] = useState(false);
+  const [description, setDescription] = useState("");
   const [titleStyle, setTitleStyle] = useState(styles.title);
   const [scoreValue, setScoreValue] = useState(0);
   const [answer, setAnswer] = useState("");
@@ -27,6 +30,34 @@ const Description = (props: Props) => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setAnswer(e.target.value);
+  };
+
+  const translate = () => {
+    const encodedParams = new URLSearchParams();
+    encodedParams.append("source_language", "en");
+    encodedParams.append("target_language", "ru");
+    encodedParams.append("text", description);
+
+    const options = {
+      method: "POST",
+      url: "https://text-translator2.p.rapidapi.com/translate",
+      headers: {
+        "X-RapidAPI-Key": process.env.REACT_APP_RAPID_API_KEY,
+        "X-RapidAPI-Host": "text-translator2.p.rapidapi.com",
+      },
+      data: encodedParams,
+    };
+
+    axios
+      .request(options)
+      .then(function (response) {
+        props.anime.synopsis = response.data.data.translatedText;
+        setDescription(props.anime.synopsis);
+        setIsTranslated(true);
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
   };
 
   useEffect(() => {
@@ -47,6 +78,9 @@ const Description = (props: Props) => {
           setDescriptionFontSize(styles.description_text_small);
         else setDescriptionFontSize(styles.description_text_smallest);
       }
+
+      setDescription(props.anime.synopsis);
+      setIsTranslated(false);
     }
   }, [props.anime]);
   const answerCheck = (
@@ -145,7 +179,18 @@ const Description = (props: Props) => {
           <>
             <div className={styles.question}>
               <h1 className={titleStyle}>{title}</h1>
-              <p className={descriptionFontSize}>{props.anime.synopsis}</p>
+              {!isTranslated && (
+                <p
+                  className={descriptionFontSize}
+                  style={{ cursor: "pointer" }}
+                  onClick={translate}
+                >
+                  {description}
+                </p>
+              )}
+              {isTranslated && (
+                <p className={descriptionFontSize}>{description}</p>
+              )}
             </div>
             <div className={styles.playerActivities}>
               <input
