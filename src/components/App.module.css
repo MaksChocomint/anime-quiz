@@ -2,12 +2,39 @@
 @tailwind components;
 @tailwind utilities;
 
-.app {
+.app_gray {
   @apply bg-zinc-800 h-screen font-sans;
 }
 
-.nav {
+.nav_gray {
   @apply bg-zinc-600 absolute z-40 top-0 left-1/2 h-11 -translate-x-1/2 rounded-b-3xl;
+  width: 85%;
+}
+
+.app_titan {
+  @apply bg-gray-800 h-screen font-sans;
+}
+
+.nav_titan {
+  @apply bg-gray-600 absolute z-40 top-0 left-1/2 h-11 -translate-x-1/2 rounded-b-3xl;
+  width: 85%;
+}
+
+.app_slate {
+  @apply bg-slate-800 h-screen font-sans;
+}
+
+.nav_slate {
+  @apply bg-slate-600 absolute z-40 top-0 left-1/2 h-11 -translate-x-1/2 rounded-b-3xl;
+  width: 85%;
+}
+
+.app_dark {
+  @apply bg-black h-screen font-sans;
+}
+
+.nav_dark {
+  @apply bg-zinc-900 absolute z-40 top-0 left-1/2 h-11 -translate-x-1/2 rounded-b-3xl;
   width: 85%;
 }
 

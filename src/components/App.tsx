@@ -10,11 +10,37 @@ import { scoreStyleAnimated } from "../data/scoreStyle";
 import { scoreStyleInitial } from "../data/scoreStyle";
 import { easyModeStyleInactive } from "../data/easyModeStyle";
 import { easyModeStyleActive } from "../data/easyModeStyle";
+import ThemeList from "./ThemeList/ThemeList";
 
 function App() {
   const [gameMode, setGameMode] = useState(
     localStorage.getItem("gameMode") || ""
   );
+  const [navTheme, setNavTheme] = useState(
+    localStorage.getItem("navTheme") || "gray"
+  );
+  const [appTheme, setAppTheme] = useState(
+    localStorage.getItem("appTheme") || "gray"
+  );
+
+  useEffect(() => {
+    if (navTheme === "gray" || appTheme === "gray") {
+      setNavTheme(styles.nav_gray);
+      setAppTheme(styles.app_gray);
+    }
+    if (navTheme === "titan" || appTheme === "titan") {
+      setNavTheme(styles.nav_titan);
+      setAppTheme(styles.app_titan);
+    }
+    if (navTheme === "slate" || appTheme === "slate") {
+      setNavTheme(styles.nav_slate);
+      setAppTheme(styles.app_slate);
+    }
+    if (navTheme === "dark" || appTheme === "dark") {
+      setNavTheme(styles.nav_dark);
+      setAppTheme(styles.app_dark);
+    }
+  }, [navTheme, appTheme]);
   const [anime, setAnime] = useState(animeInitial);
   const [refresh, setRefresh] = useState(false);
   const [easyMode, setEasyMode] = useState(
@@ -92,8 +118,8 @@ function App() {
   }, [anime]);
   console.log(anime);
   return (
-    <div className={styles.app}>
-      <div className={styles.nav}></div>
+    <div className={appTheme}>
+      <div className={navTheme}></div>
       {gameMode !== "" && <MenuButton setGameMode={setGameMode} />}
       <button
         style={easyModeStyle}
@@ -104,6 +130,9 @@ function App() {
       >
         {easyMode ? "EasyMode" : "HardMode"}
       </button>
+      {gameMode === "" && (
+        <ThemeList setAppTheme={setAppTheme} setNavTheme={setNavTheme} />
+      )}
       <div className={styles.score}>
         Score: {<div style={scoreStyle}>{score}</div>}
       </div>

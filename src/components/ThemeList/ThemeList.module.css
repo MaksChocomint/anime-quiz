@@ -1,0 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Sofia+Sans&display=swap");
+
+.theme_list_gray {
+  @apply bg-zinc-600 text-white absolute top-2 left-1/2 -translate-x-1/2 appearance-none border-pink-600 border-2 px-2 rounded-lg outline-none;
+  z-index: 100;
+  font-family: "Sofia Sans", sans-serif;
+}
+
+.theme_list_titan {
+  @apply bg-gray-600 text-white absolute top-2 left-1/2 -translate-x-1/2 appearance-none border-pink-600 border-2 px-2 rounded-lg outline-none;
+  z-index: 100;
+  font-family: "Sofia Sans", sans-serif;
+}
+
+.theme_list_slate {
+  @apply bg-slate-600 text-white absolute top-2 left-1/2 -translate-x-1/2 appearance-none border-pink-600 border-2 px-2 rounded-lg outline-none;
+  z-index: 100;
+  font-family: "Sofia Sans", sans-serif;
+}
+
+.theme_list_dark {
+  @apply bg-zinc-900 text-white absolute top-2 left-1/2 -translate-x-1/2 appearance-none border-pink-600 border-2 px-2 rounded-lg outline-none;
+  z-index: 100;
+  font-family: "Sofia Sans", sans-serif;
+}
