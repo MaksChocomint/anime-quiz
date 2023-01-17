@@ -71,7 +71,8 @@ const Preview = (props: Props) => {
     titleEn: string
   ): boolean => {
     if (answer.length !== 0) {
-      const answerArray: string[] = answer.toLowerCase().split(" ");
+      let answerArray: string[] = answer.toLowerCase().split(" ");
+      answerArray = answerArray.filter((word) => word !== "");
       let counter: number = 0;
       if (titleEn !== null) {
         if (
