@@ -37,6 +37,7 @@
 .title_correct {
   @apply tracking-wide font-bold text-3xl text-center transition-colors;
   color: rgb(16, 185, 129);
+  width: 150%;
 }
 
 .question {

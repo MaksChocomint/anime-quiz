@@ -23,3 +23,21 @@
   z-index: 100;
   font-family: "Sofia Sans", sans-serif;
 }
+
+@media (max-width: 320px) {
+  .theme_list_gray {
+    @apply px-1 text-sm top-3;
+  }
+
+  .theme_list_titan {
+    @apply px-1 text-sm top-3;
+  }
+
+  .theme_list_slate {
+    @apply px-1 text-sm top-3;
+  }
+
+  .theme_list_dark {
+    @apply px-1 text-sm top-3;
+  }
+}

@@ -65,16 +65,6 @@
   }
 
   .easyModeBtn {
-    @apply text-base top-2;
-  }
-}
-
-@media (max-width: 290px) {
-  .score {
-    @apply text-base top-2.5;
-  }
-
-  .easyModeBtn {
-    @apply text-base top-2;
+    @apply text-sm top-2.5;
   }
 }

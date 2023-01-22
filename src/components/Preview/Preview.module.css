@@ -117,14 +117,17 @@
 
   .title {
     @apply text-xl;
+    width: unset;
   }
 
   .title_correct {
     @apply text-xl;
+    width: unset;
   }
 
   .title_wrong {
     @apply text-xl;
+    width: unset;
   }
 }
 
