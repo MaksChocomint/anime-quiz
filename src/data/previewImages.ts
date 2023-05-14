@@ -12,7 +12,7 @@ export const previewImages: Array<{ src: string; id: number }> = [
     id: 3,
   },
   {
-    src: "https://wallpaperaccess.com/full/7938845.png",
+    src: "https://oboi-telefon.ru/wallpapers/92708/39170.jpg",
     id: 4,
   },
   {
